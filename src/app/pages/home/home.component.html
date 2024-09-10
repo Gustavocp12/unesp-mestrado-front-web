@@ -2,23 +2,26 @@
   <div class="text">
     Administração de Usuários
   </div>
-  <i class="pi pi-sign-out"></i>
+  <i class="pi pi-sign-out" (click)="logout()"></i>
 </nav>
 
 <section class="content">
-  <div class="users">
-    <div class="user">
-      <div class="user-info">
-        <div class="user-name">João da Silva</div>
-        <div class="user-email">Email: joao.gmail.com</div>
-        <div class="user-phone">Telefone: (18) 99640-2541</div>
-        <div class="user-crmv">CRMV: 111111</div>
-        <div class="actions">
-          <button class="reject-btn">Reprovar</button>
-          <button class="approve-btn">Aprovar</button>
+  @for (user of Users; track user){
+    <div class="users">
+      <div class="user">
+        <div class="user-info">
+          <div class="user-name">{{user.name}}</div>
+          <div class="user-email">Email: {{user.email}}</div>
+          <div class="user-phone">Telefone: {{user.phone}}</div>
+          <div class="user-clinic">Clinica: {{user.clinic}}</div>
+          <div class="user-crmv">CRMV: {{user.crmv}}</div>
+          <div class="actions">
+            <button class="reject-btn" (click)="rejectOrApprove(user.IDU, 2)">Reprovar</button>
+            <button class="approve-btn" (click)="rejectOrApprove(user.IDU, 1)">Aprovar</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  }
   <div class="website"></div>
 </section>

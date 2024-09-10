@@ -12,14 +12,14 @@
       <form>
         <div class="item">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Insira seu email" />
+          <input type="email" id="email" name="email" placeholder="Insira seu email" [(ngModel)]="email" />
         </div>
         <div class="item">
           <label for="password">Senha</label>
-          <input type="password" id="password" placeholder="Insira sua senha" />
+          <input type="password" id="password" name="password" placeholder="Insira sua senha" [(ngModel)]="password" />
         </div>
 
-        <button>ENTRAR</button>
+        <button (click)="login()">ENTRAR</button>
       </form>
     </div>
     <div class="footer"></div>
