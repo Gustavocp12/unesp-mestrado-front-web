@@ -6,6 +6,12 @@
 </nav>
 
 <section class="content">
+  <button type="button" class="redirect-btn" (click)="goToCrmv()">Ir consultar CRMV</button>
+  @if (copySuccess){
+    <div class="copy-success-message">
+      Copiado com sucesso!
+    </div>
+  }
   @for (user of Users; track user){
     <div class="users">
       <div class="user">
@@ -14,14 +20,16 @@
           <div class="user-email">Email: {{user.email}}</div>
           <div class="user-phone">Telefone: {{user.phone}}</div>
           <div class="user-clinic">Clinica: {{user.clinic}}</div>
-          <div class="user-crmv">CRMV: {{user.crmv}}</div>
+          <div class="user-crmv">
+            CRMV: {{user.crmv}}
+            <button type="button" class="copy-crmv-btn" (click)="copyCrmv(user.crmv)">Copiar CRMV</button>
+          </div>
           <div class="actions">
-            <button class="reject-btn" (click)="rejectOrApprove(user.IDU, 2)">Reprovar</button>
-            <button class="approve-btn" (click)="rejectOrApprove(user.IDU, 1)">Aprovar</button>
+            <button type="button" class="reject-btn" (click)="rejectOrApprove(user.IDU, 2)">Reprovar</button>
+            <button type="button" class="approve-btn" (click)="rejectOrApprove(user.IDU, 1)">Aprovar</button>
           </div>
         </div>
       </div>
     </div>
   }
-  <div class="website"></div>
 </section>

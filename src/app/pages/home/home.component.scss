@@ -13,21 +13,31 @@ nav{
 }
 
 .content {
-  display: flex;
-  justify-content: space-between;
   padding: 20px;
   background-color: #f8f9fa;
   height: 100vh;
+
+  .redirect-btn{
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    background-color: #333;
+    color: white;
+    margin-bottom: 20px;
+
+    &:hover {
+      background-color: #555;
+    }
+  }
 
   .users{
     height: 275px;
   }
 
-  .website{
-    height: 500px;
-  }
-
-  .users, .website {
+  .users{
     flex: 1;
     margin: 10px;
     background-color: #fff;
@@ -37,6 +47,21 @@ nav{
   }
 
   .users {
+
+    .copy-crmv-btn {
+      margin-left: 10px;
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .copy-crmv-btn:hover {
+      background-color: #45a049;
+    }
+
     .user-info {
       padding: 20px;
       border: 1px solid #ddd;
@@ -102,11 +127,14 @@ nav{
       }
     }
   }
+}
 
-  .website {
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+.copy-success-message {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 16px;
 }

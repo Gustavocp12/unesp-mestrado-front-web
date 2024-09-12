@@ -15,6 +15,7 @@ import {AdminService} from "../../services/admin.service";
 export class HomeComponent implements OnInit{
 
   Users: any;
+  copySuccess: boolean = false;
 
   constructor(private AuthService: AuthService, private AdminService: AdminService) {}
 
@@ -30,6 +31,19 @@ export class HomeComponent implements OnInit{
     this.AdminService.getAllUsers().subscribe((res: any) => {
       this.Users = res;
     })
+  }
+
+  copyCrmv(crmv: string) {
+    navigator.clipboard.writeText(crmv).then(() => {
+      this.copySuccess = true;
+      setTimeout(() => {
+        this.copySuccess = false;
+      }, 3000);
+    })
+  }
+
+  goToCrmv(){
+    window.open('https://crmv-sp.implanta.net.br/ServicosOnline/Publico/ConsultaInscritos/', '_blank');
   }
 
   rejectOrApprove(IDU: number, verification: number){

@@ -18,6 +18,6 @@ export class AdminService {
   public rejectOrApprove(IDU: number, verification: number) {
     const token = localStorage.getItem('token');
     const headers = { Authorization: `Bearer ${token}` };
-    return this.http.put(environment.api + '/rejectOrApproveUser', {IDU, verification}, {headers});
+    return this.http.post(environment.api + '/rejectOrApproveUser', {IDU, verification}, {headers});
   }
 }
